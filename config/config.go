@@ -1,11 +1,16 @@
 package config
 
 import (
+	"bytes"
+	_ "embed"
 	"fmt"
 
 	"fioepq9.cn/checkin_ecycloud/logger"
 	"github.com/spf13/viper"
 )
+
+//go:embed config.yaml
+var configfile []byte
 
 type login struct {
 	Url string `mapstructure:"url"`
@@ -31,11 +36,8 @@ type config struct {
 var C config
 
 func init() {
-	viper.SetConfigFile("./config.yaml")
-	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath(".")
-	err := viper.ReadInConfig()
+	err := viper.ReadConfig(bytes.NewReader(configfile))
 	if err != nil {
 		logger.L.Info("")
 		panic(fmt.Errorf("Fatal error in config file: %s \n", err))
