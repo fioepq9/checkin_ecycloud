@@ -8,9 +8,11 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"net/url"
+	"time"
 
 	"fioepq9.cn/checkin_ecycloud/config"
 	"fioepq9.cn/checkin_ecycloud/logger"
+	"github.com/sirupsen/logrus"
 )
 
 func Login(email string, passwd string) (*http.Client, error) {
@@ -39,7 +41,7 @@ type checkinResponse struct {
 	Msg string `json:"msg"`
 }
 
-func checkin(email, passwd string, log *logger.Logger) {
+func checkin(email, passwd string, log *logrus.Logger) {
 	client, err := Login(email, passwd)
 	if err != nil {
 		log.Error("登录失败：网络问题 / 账号密码错误", err)
@@ -70,9 +72,11 @@ func checkin(email, passwd string, log *logger.Logger) {
 }
 
 func main() {
-	for _, u := range config.C.Users {
-		checkin(u.Email, u.Passwd, logger.NewLogger(
-			fmt.Sprintf("./log/%s.txt", u.Shortcut),
-		))
+	for ; true; <-time.NewTicker(24 * time.Hour).C {
+		for _, u := range config.C.Users {
+			checkin(u.Email, u.Passwd, logger.NewLogger(
+				fmt.Sprintf("./log/%s.txt", u.Shortcut),
+			))
+		}
 	}
 }
