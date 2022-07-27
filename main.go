@@ -2,15 +2,15 @@ package main
 
 import (
 	"bytes"
-	"checkin/config"
-	_ "checkin/config"
-	"checkin/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/http/cookiejar"
 	"net/url"
+
+	"fioepq9.cn/checkin_ecycloud/config"
+	"fioepq9.cn/checkin_ecycloud/logger"
 )
 
 func Login(email string, passwd string) (*http.Client, error) {

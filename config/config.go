@@ -1,8 +1,9 @@
 package config
 
 import (
-	"checkin/logger"
 	"fmt"
+
+	"fioepq9.cn/checkin_ecycloud/logger"
 	"github.com/spf13/viper"
 )
 
