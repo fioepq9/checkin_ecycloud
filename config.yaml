@@ -1,0 +1,15 @@
+login:
+  url: "https://ovo.ecyjc.com/auth/login"
+
+checkin:
+  url: "https://ovo.ecyjc.com/user/checkin"
+
+user:
+  - name: "first-user-name"
+    shortcut: "first-user-shortcut"
+    email: "first-user-email"
+    passwd: "first-user-passwd"
+  - name: "second-user-name"
+    shortcut: "second-user-shortcut"
+    email: "second-user-email"
+    passwd: "second-user-passwd"
