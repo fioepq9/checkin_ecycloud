@@ -67,9 +67,7 @@ func Checkin(name, email, passwd string) {
 	var checkinResp model.CheckinResponse
 	err = json.Unmarshal(body, &checkinResp)
 	if err != nil {
-		log.WithFields(logrus.Fields{
-			"response": string(body),
-		}).WithError(err).Error("json.Unmarshal failed, 签到失败：检查config.yaml")
+		log.WithError(err).Error("json.Unmarshal failed, 签到失败：检查config.yaml")
 		return
 	}
 	log.Info(checkinResp.Msg)
