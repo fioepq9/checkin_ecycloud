@@ -3,6 +3,7 @@ module fioepq9.cn/checkin_ecycloud
 go 1.18
 
 require (
+	github.com/roylee0704/gron v0.0.0-20160621042432-e78485adab46
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/viper v1.12.0
 )

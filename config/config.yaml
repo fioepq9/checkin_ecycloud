@@ -1,8 +1,8 @@
 login:
-  url: "https://ovo.ecyjc.com/auth/login"
+  url: "https://owo.ecycloud.com/auth/login"
 
 checkin:
-  url: "https://ovo.ecyjc.com/user/checkin"
+  url: "https://owo.ecycloud.com/user/checkin"
 
 user:
   - name: "first-user-name"

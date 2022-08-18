@@ -22,7 +22,6 @@ type checkin struct {
 
 type user struct {
 	Name     string `mapstructure:"name"`
-	Shortcut string `mapstructure:"shortcut"`
 	Email    string `mapstructure:"email"`
 	Passwd   string `mapstructure:"passwd"`
 }

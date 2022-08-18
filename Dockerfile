@@ -14,9 +14,6 @@ FROM alpine:3.15.5 as prod
 
 WORKDIR /workspace
 COPY --from=builder /workspace/app .
-
-RUN mkdir log
-
-ENV TZ="Asia/Shanghai"
+COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 CMD ["./app"]
